@@ -83,6 +83,21 @@ const Schedule = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const startDate = startOfWeek(currentMonth);
 
+  // The existing wizard only simulates submission. Preserve it for future integration,
+  // but do not expose a confirmation until a real booking service is implemented.
+  const schedulingAvailable = false;
+  if (!schedulingAvailable) {
+    return (
+      <div className="min-h-screen bg-white px-4 py-12">
+        <section className="mx-auto max-w-2xl rounded-xl border border-[#091f1a]/20 p-6 md:p-8" aria-labelledby="schedule-unavailable">
+          <h1 id="schedule-unavailable" className="mb-4 text-3xl font-bold text-[#091f1a]">Agendamento online indisponível</h1>
+          <p className="mb-6 leading-relaxed text-[#303735]">O agendamento pelo site ainda não está disponível. Consulte os canais de contato da ESM Advocacia para informações sobre atendimento profissional.</p>
+          <Link to="/contact" className="inline-flex min-h-11 items-center rounded-md bg-[#091f1a] px-4 py-3 font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Entrar em contato</Link>
+        </section>
+      </div>
+    );
+  }
+
   const renderCalendar = () => {
     const days = [];
     for (let i = 0; i < 7; i++) {

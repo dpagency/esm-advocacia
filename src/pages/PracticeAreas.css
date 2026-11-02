@@ -1,0 +1,107 @@
+﻿/* Scoped to the services page so the rest of the site keeps its current identity. */
+.practice-experience {
+  background: #f8f6f1;
+  color: #303735;
+  overflow-wrap: anywhere;
+}
+
+.practice-experience :is(h2, h3, h4, h5) { color: #091f1a; }
+.practice-experience .subject-hero { background: #123d32; color: #fff; }
+.practice-experience .subject-search { color: #fff; }
+.practice-experience .subject-search svg { color: #0b8767; }
+.practice-experience .subject-search input { background: #fff; border-color: #687b72; color: #303735; }
+.practice-experience .subject-search input::placeholder { color: #59645f; opacity: 1; }
+.practice-experience .subject-filter { background: #fff; border-color: #687b72; color: #303735; }
+.practice-experience .subject-filter:hover { background: #e8f0eb; }
+.practice-experience .subject-cards { columns: 1; column-gap: 16px; }
+.practice-experience .subject-card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  break-inside: avoid;
+  vertical-align: top;
+  background: #fff;
+  border-color: #cbd6cf;
+  color: #303735;
+  box-shadow: none;
+}
+.practice-experience .subject-specialty { background: #e8f0eb; border-color: transparent; color: #091f1a; }
+.practice-experience .subject-description { color: #303735; }
+.practice-experience .subject-details summary { color: #086d53; }
+.practice-experience .subject-panel,
+.practice-experience .subject-institutional { background: #e8f0eb; }
+.practice-experience .subject-panel-contact { border-color: #687b72; }
+.practice-experience .subject-empty { column-span: all; background: #fff; border-color: #cbd6cf; }
+
+@media (min-width: 768px) {
+  .practice-experience .subject-cards { columns: 2; }
+}
+@media (min-width: 1024px) {
+  .practice-experience .subject-cards { columns: 3; }
+}
+
+/* A slightly darker emerald keeps white button text above AA's 4.5:1 threshold. */
+.practice-experience .subject-contact {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 6px;
+  padding: 12px;
+  background: #0b8565;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+.practice-experience .subject-contact:hover { background: #086d53; }
+.practice-experience .subject-hero-contact { border: 1px solid #fff; }
+.practice-experience :is(a, button, input, select, summary):focus-visible,
+.services-navbar :is(a, button):focus-visible {
+  outline: 2px solid #091f1a;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
+}
+.practice-experience .subject-hero-contact:focus-visible { outline-color: #fff; box-shadow: none; }
+
+.subject-mobile-contact { display: none; }
+.services-navbar { padding-top: 8px; padding-bottom: 8px; }
+.services-navbar .services-header-contact { background: #0b8565; color: #fff; }
+.services-navbar .services-header-contact:hover { background: #086d53; }
+.services-navbar .navbar-links a[aria-current="page"] { color: #086d53; }
+.services-navbar .navbar-links a:hover { color: #086d53; }
+.services-navbar .navbar-mobile-menu > a { min-height: 44px; color: #091f1a; }
+
+@media (max-width: 1199px) {
+  .services-navbar .navbar-links { display: none; }
+  .services-navbar .navbar-menu-toggle { display: inline-flex; min-height: 44px; min-width: 44px; align-items: center; justify-content: center; }
+  .services-navbar .navbar-mobile-menu { display: flex; }
+}
+
+@media (max-width: 767px) {
+  .esm-services-layout { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .subject-mobile-contact {
+    display: block;
+    position: fixed;
+    z-index: 40;
+    inset: auto 0 0;
+    padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
+    background: #f8f6f1;
+    border-top: 1px solid #687b72;
+  }
+  .services-navbar .navbar-brand { max-width: 230px; font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .practice-experience *,
+  .practice-experience *::before,
+  .practice-experience *::after,
+  .services-navbar,
+  .services-navbar * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
